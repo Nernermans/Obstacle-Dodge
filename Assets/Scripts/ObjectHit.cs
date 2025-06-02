@@ -4,8 +4,14 @@ public class ObjectHit : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)
     {
-        GetComponent<MeshRenderer>().material.color = Color.black;
-        // Change the color of the object to gray when it collides with something
-        Debug.Log("Something hit me!");
+        if (other.gameObject.tag == "Player")
+        {
+            GetComponent<MeshRenderer>().material.color = Color.black;
+            // Change the color of the object to gray when it collides with something
+            gameObject.tag = "Hit";
+            // Change the tag of the object to "Hit" when it collides with something
+        }
+        
+       
     }
 }
